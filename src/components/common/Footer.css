@@ -1,0 +1,31 @@
+.footer{
+background:black;
+color:white;
+margin-top:auto;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-around;
+padding:40px;
+}
+
+.footer-section h3,
+.footer-section h4{
+margin-bottom:10px;
+}
+
+.footer-section p{
+margin:5px 0;
+cursor:pointer;
+}
+
+.footer-section p:hover{
+color:orange;
+}
+
+.footer-bottom{
+text-align:center;
+padding:15px;
+border-top:1px solid #333;
+}

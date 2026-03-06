@@ -11,19 +11,21 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="products">
+
       <h1>Quick Deal Products</h1>
 
-      {products.map((item) => (
-        <div key={item.id}>
-          <h3>{item.name}</h3>
-          <p>Price: ₹{item.price}</p>
-          <p>Category: {item.category}</p>
+      {products.map((p, index) => (
+        <div className="product-card" key={index}>
+          <h3>{p.name}</h3>
+          <p>Price: ₹{p.price}</p>
+          <p>Category: {p.category}</p>
         </div>
       ))}
-      
+
     </div>
-  );
+  )
+
 }
 
-export default Home;
+export default Home
