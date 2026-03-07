@@ -17,7 +17,6 @@ const Footer = () => {
           <p>Careers</p>
           <p>Contact</p>
         </div>
-
         <div className="footer-section">
           <h4>Shop</h4>
           <p>Mobiles</p>
