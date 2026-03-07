@@ -14,8 +14,9 @@ import Sports from "../src/pages/Sports";
 import Books from "../src/pages/Books";
 import Furniture from "../src/pages/Furniture";
 import Home from "./pages/Home";
-import Header from "./components/common/Header.jsx";
-import Footer from "./components/common/Footer.jsx";
+import Header from "./components/common/Header";
+import Footer from "./components/common/Footer";
+
 function App() {
   return (
     <>
