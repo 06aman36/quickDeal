@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ProductGrid.css";
+import "./productGrid.css";
 
 import p1 from "/images/bananaChipsFront.jpeg";
 import p2 from "/images/makhanaBothSide.jpeg";
