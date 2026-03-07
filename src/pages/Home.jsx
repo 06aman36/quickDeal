@@ -1,14 +1,12 @@
+import React from "react";
 import Categories from "../components/home/Categories"
 import OfferBanner from "../components/home/OfferBanner"
 import ProductGrid from "../components/products/productGrid"
-import Hero from "../../src/components/home/Hero"
+import Hero from "../../src/components/home/Hero";
 
-
-function Home() {
-
+const Home = () => {
   return (
-
-    <>
+     <>
       <Hero />
 
       <Categories />
@@ -17,9 +15,7 @@ function Home() {
 
       <OfferBanner />
     </>
+  );
+};
 
-  )
-
-}
-
-export default Home
+export default Home;
