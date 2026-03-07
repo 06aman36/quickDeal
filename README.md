@@ -72,3 +72,8 @@ quickdeal-backend
 ├── server.js
 ├── package.json
 └── .env
+
+
+
+for Icons:
+https://react-icons.github.io/

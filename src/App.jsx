@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Footer from "../src/components/common/footer";
 import Header from "../src/components/Common/header";
-import Home from "../src/pages/home";
 import Fashion from "../src/pages/Fashion";
 import Mobiles from "../src/pages/Mobiles";
 import Beauty from "../src/pages/Beauty";
@@ -16,6 +15,7 @@ import TwoWheelers from "../src/pages/TwoWheelers";
 import Sports from "../src/pages/Sports";
 import Books from "../src/pages/Books";
 import Furniture from "../src/pages/Furniture";
+import Home from "./pages/Home";
 
 function App() {
   return (
