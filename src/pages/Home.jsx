@@ -1,29 +1,23 @@
-import { useEffect, useState } from "react";
+import Categories from "../components/home/Categories"
+import OfferBanner from "../components/home/OfferBanner"
+import ProductGrid from "../components/products/productGrid"
+import Hero from "../components/home/hero"
+
 
 function Home() {
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/products")
-      .then(res => res.json())
-      .then(data => setProducts(data));
-  }, []);
-
   return (
-    <div className="products">
 
-      <h1>Quick Deal Products</h1>
+    <>
+      <Hero />
 
-      {products.map((p, index) => (
-        <div className="product-card" key={index}>
-          <h3>{p.name}</h3>
-          <p>Price: ₹{p.price}</p>
-          <p>Category: {p.category}</p>
-        </div>
-      ))}
+      <Categories />
 
-    </div>
+      <ProductGrid />
+
+      <OfferBanner />
+    </>
+
   )
 
 }
