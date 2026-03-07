@@ -1,7 +1,7 @@
 import Categories from "../components/home/Categories"
 import OfferBanner from "../components/home/OfferBanner"
 import ProductGrid from "../components/products/productGrid"
-import Hero from "../components/home/hero"
+import Hero from "../../src/components/home/Hero"
 
 
 function Home() {
