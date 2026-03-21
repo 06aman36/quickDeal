@@ -17,6 +17,7 @@ import Home from "./pages/Home";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import ProductDetails from "./components/Common/ProductDetail";
+import Signup from "./pages/Signup";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/books-media" element={<Books />} />
         <Route path="/furniture" element={<Furniture />} />
         <Route path="/product/:name/:id" element={<ProductDetails />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </>

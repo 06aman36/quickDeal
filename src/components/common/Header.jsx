@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import { AiOutlineShopping } from "react-icons/ai";
-import { FaTshirt, FaMobileAlt, FaLaptop, FaHome, FaCouch, FaBook, FaRegUserCircle , FaAngleDown } from "react-icons/fa";
+import { FaTshirt, FaMobileAlt, FaLaptop, FaHome, FaCouch, FaBook, FaRegUserCircle, FaAngleDown } from "react-icons/fa";
 import { GiLipstick, GiBabyBottle, GiScooter, GiWeightLiftingUp } from "react-icons/gi";
 import { MdKitchen, MdFastfood, MdOutlineToys } from "react-icons/md";
 import { BsCart } from "react-icons/bs";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import "./Header.css";
+import { useState } from "react";
 
 const Header = () => {
- 
+  const [showDropdown, setShowDropdown] = useState(false);
   const categories = [
     { name: "For You", icon: <AiOutlineShopping />, path: "/" },
     { name: "Fashion", icon: <FaTshirt />, path: "/fashion" },
@@ -39,7 +40,34 @@ const Header = () => {
           placeholder="Search for Products, Brands and More"
         />
         <div className="nav-icons">
-          <span className="login"><FaRegUserCircle  /> Login <FaAngleDown /></span>
+          <div
+            className="login-container"
+            onMouseEnter={() => setShowDropdown(true)}
+            onMouseLeave={() => setShowDropdown(false)}
+          >
+            <span className="login">
+              <FaRegUserCircle /> Login <FaAngleDown />
+            </span>
+
+            {showDropdown && (
+              <div className="dropdown">
+                <div className="dropdown-header">
+                  <span>New Customer?</span>
+                  <span className="signup">
+                    <Link to="/signup">Sign Up</Link>
+                  </span>
+                </div>
+
+                <ul>
+                  <li>My Profile</li>
+                  <li>Orders</li>
+                  <li>Wishlist</li>
+                  <li>Rewards</li>
+                  <li>Gift Cards</li>
+                </ul>
+              </div>
+            )}
+          </div>
           <span className="more">More <FaAngleDown /></span>
           <span className="cart"><HiOutlineShoppingCart /> Cart</span>
         </div>

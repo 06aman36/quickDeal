@@ -5,6 +5,7 @@ function ProductDetails({ productId }) {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
+    debugger;
     axios.get(`/api/products/${productId}`)
       .then(res => setProduct(res.data))
       .catch(err => console.error(err));
