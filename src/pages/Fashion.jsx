@@ -1,61 +1,64 @@
+import { useEffect, useState } from "react";
 import "./CategoryPage.css";
-
-const products = [
-  {
-    id: 1,
-    name: "Men Casual T-Shirt",
-    price: "₹499",
-    discount: "40% OFF",
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
-  },
-  {
-    id: 2,
-    name: "Women Summer Dress",
-    price: "₹899",
-    discount: "30% OFF",
-    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d"
-  },
-  {
-    id: 3,
-    name: "Denim Jacket",
-    price: "₹1499",
-    discount: "25% OFF",
-    image: "https://images.unsplash.com/photo-1520975954732-35dd22299614"
-  },
-  {
-    id: 4,
-    name: "Sneakers",
-    price: "₹1999",
-    discount: "20% OFF",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
-  }
-];
+import { fashionBrandFilters, fashionPriceFilters } from "../config";
+import { handleCheckboxChange, productsApi } from "./utils";
 
 const Fashion = () => {
+  const [products, setPoducts] = useState([]);
+  const [price, setPrice] = useState("");
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  useEffect(() => {
+    productsApi({
+      selectedItems,
+      price,
+      setPoducts
+    });
+  }, [selectedItems, price]);
+
   return (
     <div className="category-page">
-
       <aside className="filters">
         <h3>Filters</h3>
-
         <div className="filter-section">
           <h4>Brand</h4>
-          <label><input type="checkbox"/> Nike</label>
-          <label><input type="checkbox"/> Adidas</label>
-          <label><input type="checkbox"/> Puma</label>
+          {
+            fashionBrandFilters.map((filter, i) => {
+              return (
+                <label key={i+filter.value}>
+                  <input
+                    type="checkbox"
+                    value={filter.value}
+                    name="brand"
+                    onChange={(e) => handleCheckboxChange(e, setSelectedItems)}
+                  />{" "}
+                  {filter.value}
+                </label>
+              )
+            })
+          }
         </div>
 
         <div className="filter-section">
           <h4>Price</h4>
-          <label><input type="checkbox"/> ₹0 - ₹500</label>
-          <label><input type="checkbox"/> ₹500 - ₹1000</label>
-          <label><input type="checkbox"/> ₹1000+</label>
+          {
+            fashionPriceFilters.map((filter, i) => {
+              return (
+                <label key={i+filter.value}>
+                  <input
+                    type="radio"
+                    value={filter.value}
+                    name="price"
+                    checked={price === filter.value}
+                    onChange={(e) => setPrice(e.target.value)}
+                  />{" "}
+                  {filter.uiValue}
+                </label>
+            )})
+          }
         </div>
-
       </aside>
-
       <div className="products-area">
-
         <div className="sort-bar">
           <span>Sort By:</span>
           <button>Popularity</button>
@@ -64,22 +67,15 @@ const Fashion = () => {
         </div>
 
         <div className="product-grid">
-
           {products.map((item) => (
             <div className="product-card" key={item.id}>
-
               <div className="discount">{item.discount}</div>
-
               <img src={item.image} alt={item.name} />
-
               <h4>{item.name}</h4>
-
               <p className="price">{item.price}</p>
-
               <button className="cart-btn">
                 Add To Cart
               </button>
-
             </div>
           ))}
 
