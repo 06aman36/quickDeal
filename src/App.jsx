@@ -16,7 +16,7 @@ import Furniture from "../src/pages/Furniture";
 import Home from "./pages/Home";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
-import ProductDetails from "./components/Common/ProductDetail";
+import ProductDetails from "./components/common/ProductDetail";
 import Signup from "./pages/Signup";
 
 function App() {
